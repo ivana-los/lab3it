@@ -1,0 +1,38 @@
+﻿@model IEnumerable<mvccc.Models.Doctor>
+@{
+    ViewBag.Title = "Index";
+}}
+
+<h2>Лекари</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Додади нов лекар</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Име</th>
+            <th>Специјалност</th>
+            <th>Болница</th>
+            <th>Адреса на болницата</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.doktorce</td>
+                <td>@item.hospitalid</td>
+                <td>@item.hospital?.Name</td>
+                <td>@item.hospital?.Address</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.id" class="btn btn-info btn-sm">Детали</a>
+                    <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-warning btn-sm">Измени</a>
+                    <a asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger btn-sm">Избриши</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
