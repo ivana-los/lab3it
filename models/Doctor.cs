@@ -12,7 +12,6 @@ namespace mvccc.Models
         public int hospitalid { get; set; }
         public Hospital hospital { get; set; }
         public virtual ICollection<Patient> PatientDoctors { get; set; }
-        public string test { get; set; }
-        public object Patients { get; internal set; }
+       
     }
 }
